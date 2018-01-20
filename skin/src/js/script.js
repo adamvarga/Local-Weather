@@ -15,7 +15,7 @@ var weatherIP = "https://fcc-weather-api.glitch.me/api/current?lon=";
                     var main = data.weather[0].main;
                     var sunriseDate = new Date(data.sys.sunrise * 1000).toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
                     var sunsetDate = new Date(data.sys.sunset * 1000).toLocaleTimeString().replace(/([\d]+:[\d]{2})(:[\d]{2})(.*)/, "$1$3");
-                    var tempCelsius = data.main.temp;
+                    var tempCelsius = Math.round(data.main.temp); 
                     IconGen(main);
                     switchFahrenheit(tempCelsius);
                     $(".description .desc").text(getDesc);
